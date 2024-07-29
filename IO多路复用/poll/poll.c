@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> 
 #include <unistd.h>
 #include <ctype.h>
 #include <string.h>
@@ -188,8 +188,9 @@ int main()
             }
         }
     }
+    
     close(listenfd);
     close(connfd);
-
+    
     return 0;
 }
