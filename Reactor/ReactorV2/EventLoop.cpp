@@ -15,9 +15,9 @@ EventLoop::EventLoop(Acceptor &acceptor)
 , _isLooping(false)
 , _acceptor(acceptor) //引用数据成员,必须在构造函数的初始化列表中进行初始化
 {
-    //需要将
+    //需要将listenfd放在红黑树上进行监听
     int listenfd = acceptor.getfd();
-    addEpoolReadFd(listenfd);
+    addEpollReadFd(listenfd);
 }
 
 EventLoop::~EventLoop()
@@ -39,7 +39,7 @@ void EventLoop::unloop()
     _isLooping = false;
 }
 
-
+//封装epoll_wait
 void EventLoop::waitEpollFd()
 {   
     //获取vector第一个元素的首地址
@@ -64,7 +64,7 @@ void EventLoop::waitEpollFd()
             int listenfd = _acceptor.getfd();
 
             if(fd == listenfd){
-                handNewConnection(); //处理新的连接请求
+                handleNewConnection(); //处理新的连接请求
             }else{
                 handleMessage(fd); //处理老的连接
             }
@@ -72,7 +72,8 @@ void EventLoop::waitEpollFd()
     }
 }
 
-void EventLoop::handNewConnection()
+//处理新连接
+void EventLoop::handleNewConnection()
 {
     //如果connfd是正常的,表明三次握手成功
     int connfd = _acceptor.accept();
@@ -89,7 +90,7 @@ void EventLoop::handNewConnection()
     _conns[connfd] = con;
 
     //将文件描述符connfd放在红黑树上进行监听
-    addEpoolReadFd(connfd);
+    addEpollReadFd(connfd);
 }
 
 void EventLoop::handleMessage(int fd)
@@ -122,7 +123,8 @@ int EventLoop::createEpollFd()
     return fd;
 }
 
-void EventLoop::addEpoolReadFd(int fd)
+//将文件描述符放在红黑树上进行监听
+void EventLoop::addEpollReadFd(int fd)
 {
     struct epoll_event evt;
     evt.events = EPOLLIN;
@@ -136,7 +138,7 @@ void EventLoop::addEpoolReadFd(int fd)
 }
 
 //将文件描述符从红黑树上取消监听
-void EventLoop::delEpoolReadFd(int fd)
+void EventLoop::delEpollReadFd(int fd)
 {
     struct epoll_event evt;
     evt.events = EPOLLIN;
