@@ -7,20 +7,19 @@
 class Acceptor
 {
 public:
-    Acceptor(const string & ip, unsigned short port);
+    Acceptor(const string &ip, unsigned short port);
     ~Acceptor();
     void ready();
-    void setReuseAddr();
+    int accept();
+    int getfd() const;
+private:
+    void setReuseAddr();  //将四个成员函数设为私有
     void setReusePort();
     void bind();
     void listen();
-    int accept();
-    int getfd() const;
-
 private:
     Socket _sock;
     InetAddress _addr;
 };
 
 #endif
-
