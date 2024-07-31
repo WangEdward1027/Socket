@@ -27,7 +27,7 @@ public:
     void waitEpollFd();
 
     //处理新的连接
-    void handNewConnection();
+    void handleNewConnection();
 
     //处理老连接上的数据收发
     void handleMessage(int fd);
@@ -36,10 +36,10 @@ public:
     int createEpollFd();
 
     //将文件描述符放在红黑树上进行监听
-    void addEpoolReadFd(int fd);
+    void addEpollReadFd(int fd);
     
     //将文件描述符从红黑树上取消监听
-    void delEpoolReadFd(int fd);
+    void delEpollReadFd(int fd);
 
 private:
     int _epfd;  //由epoll_create创建的文件描述符
