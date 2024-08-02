@@ -1,0 +1,102 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Acceptor	Acceptor.cpp	/^Acceptor::Acceptor(const string & ip, unsigned short port)$/;"	f	class:Acceptor
+Acceptor	Acceptor.h	/^class Acceptor$/;"	c
+EventLoop	EventLoop.cpp	/^EventLoop::EventLoop(Acceptor &acceptor)$/;"	f	class:EventLoop
+EventLoop	EventLoop.h	/^class EventLoop$/;"	c
+InetAddress	InetAddress.cpp	/^InetAddress::InetAddress(const string & ip, unsigned short port)$/;"	f	class:InetAddress
+InetAddress	InetAddress.cpp	/^InetAddress::InetAddress(const struct sockaddr_in &addr)$/;"	f	class:InetAddress
+InetAddress	InetAddress.h	/^class InetAddress$/;"	c
+NonCopyable	NonCopyable.h	/^    NonCopyable(){}$/;"	f	class:NonCopyable
+NonCopyable	NonCopyable.h	/^class NonCopyable$/;"	c
+OnMessage	TestEventLoop.cpp	/^void OnMessage(const TcpConnectionPtr &con)$/;"	f
+Socket	Socket.cpp	/^Socket::Socket()$/;"	f	class:Socket
+Socket	Socket.cpp	/^Socket::Socket(int fd)$/;"	f	class:Socket
+Socket	Socket.h	/^class Socket$/;"	c
+SocketIO	SocketIO.cpp	/^SocketIO:: SocketIO(int fd)$/;"	f	class:SocketIO
+SocketIO	SocketIO.h	/^class SocketIO$/;"	c
+TcpConnection	TcpConnection.cpp	/^TcpConnection::TcpConnection(int fd)$/;"	f	class:TcpConnection
+TcpConnection	TcpConnection.h	/^class TcpConnection$/;"	c
+TcpServer	TcpServer.h	/^class TcpServer$/;"	c
+__ACCEPTOR_H__	Acceptor.h	2;"	d
+__EVENTLOOP_H__	EventLoop.h	2;"	d
+__INETADDRESS_H__	InetAddress.h	2;"	d
+__NonCopyable_H__	NonCopyable.h	2;"	d
+__SOCKETIO_H__	SocketIO.h	2;"	d
+__SOCKET_H__	Socket.h	2;"	d
+__TCPCONNECTION_H__	TcpConnection.h	2;"	d
+__TCPSERVER_H__	TcpServer.h	2;"	d
+_acceptor	EventLoop.h	/^    Acceptor &_acceptor; \/\/获取Acceptor类型的引用,目的是为了调用其中的accept函数$/;"	m	class:EventLoop
+_addr	Acceptor.h	/^    InetAddress _addr;$/;"	m	class:Acceptor
+_addr	InetAddress.h	/^    struct sockaddr_in _addr;$/;"	m	class:InetAddress	typeref:struct:InetAddress::sockaddr_in
+_conns	EventLoop.h	/^    map<int, shared_ptr<TcpConnection>> _conns; \/\/存放文件描述符与TcpConnection键值对$/;"	m	class:EventLoop
+_epfd	EventLoop.h	/^    int _epfd;  \/\/由epoll_create创建的文件描述符$/;"	m	class:EventLoop
+_evtList	EventLoop.h	/^    vector<struct epoll_event> _evtList; \/\/交给epoll_wait的第二个参数,存放就绪的文件描述符$/;"	m	class:EventLoop
+_fd	Socket.h	/^    int _fd;$/;"	m	class:Socket
+_fd	SocketIO.h	/^    int _fd;$/;"	m	class:SocketIO
+_isLooping	EventLoop.h	/^    bool _isLooping; \/\/标识循环是否在运行$/;"	m	class:EventLoop
+_localAddr	TcpConnection.h	/^    InetAddress _localAddr;$/;"	m	class:TcpConnection
+_onClose	TcpConnection.h	/^    TcpConnectionCallback _onClose;    \/\/连接断开$/;"	m	class:TcpConnection
+_onCloseCb	EventLoop.h	/^    TcpConnectionCallback _onCloseCb;$/;"	m	class:EventLoop
+_onMessage	TcpConnection.h	/^    TcpConnectionCallback _onMessage;  \/\/消息到达(文件描述符可读)$/;"	m	class:TcpConnection
+_onMessageCb	EventLoop.h	/^    TcpConnectionCallback _onMessageCb;$/;"	m	class:EventLoop
+_onNewConnection	TcpConnection.h	/^    TcpConnectionCallback _onNewConnection; \/\/连接建立$/;"	m	class:TcpConnection
+_onNewConnectionCb	EventLoop.h	/^    TcpConnectionCallback _onNewConnectionCb;$/;"	m	class:EventLoop
+_peerAddr	TcpConnection.h	/^    InetAddress _peerAddr;$/;"	m	class:TcpConnection
+_sock	Acceptor.h	/^    Socket _sock;$/;"	m	class:Acceptor
+_sock	TcpConnection.h	/^    Socket _sock;$/;"	m	class:TcpConnection
+_sockIO	TcpConnection.h	/^    SocketIO _sockIO;$/;"	m	class:TcpConnection
+accept	Acceptor.cpp	/^int Acceptor::accept()$/;"	f	class:Acceptor
+addEpollReadFd	EventLoop.cpp	/^void EventLoop::addEpollReadFd(int fd)$/;"	f	class:EventLoop
+bind	Acceptor.cpp	/^void Acceptor::bind()$/;"	f	class:Acceptor
+createEpollFd	EventLoop.cpp	/^int EventLoop::createEpollFd()$/;"	f	class:EventLoop
+delEpollReadFd	EventLoop.cpp	/^void EventLoop::delEpollReadFd(int fd)$/;"	f	class:EventLoop
+getFd	Socket.cpp	/^int Socket::getFd() const$/;"	f	class:Socket
+getInetAddressPtr	InetAddress.cpp	/^const struct sockaddr_in* InetAddress::getInetAddressPtr() const$/;"	f	class:InetAddress
+getLocalAddr	TcpConnection.cpp	/^InetAddress TcpConnection::getLocalAddr()$/;"	f	class:TcpConnection
+getPeerAddr	TcpConnection.cpp	/^InetAddress TcpConnection::getPeerAddr()$/;"	f	class:TcpConnection
+getfd	Acceptor.cpp	/^int Acceptor::getfd() const$/;"	f	class:Acceptor
+handleCloseCallback	TcpConnection.cpp	/^void TcpConnection::handleCloseCallback()$/;"	f	class:TcpConnection
+handleMessage	EventLoop.cpp	/^void EventLoop::handleMessage(int fd)$/;"	f	class:EventLoop
+handleMessageCallback	TcpConnection.cpp	/^void TcpConnection::handleMessageCallback()$/;"	f	class:TcpConnection
+handleNewConnection	EventLoop.cpp	/^void EventLoop::handleNewConnection()$/;"	f	class:EventLoop
+handleNewConnectionCallback	TcpConnection.cpp	/^void TcpConnection::handleNewConnectionCallback()$/;"	f	class:TcpConnection
+ip	InetAddress.cpp	/^string InetAddress::ip() const$/;"	f	class:InetAddress
+isClosed	TcpConnection.cpp	/^bool TcpConnection::isClosed() const$/;"	f	class:TcpConnection
+listen	Acceptor.cpp	/^void Acceptor::listen()$/;"	f	class:Acceptor
+loop	EventLoop.cpp	/^void EventLoop::loop()$/;"	f	class:EventLoop
+main	TestEventLoop.cpp	/^int main()$/;"	f
+onClose	TestEventLoop.cpp	/^void onClose(const TcpConnectionPtr &con)$/;"	f
+onNewConnection	TestEventLoop.cpp	/^void onNewConnection(const TcpConnectionPtr &con)$/;"	f
+port	InetAddress.cpp	/^unsigned short InetAddress::port() const$/;"	f	class:InetAddress
+readLine	SocketIO.cpp	/^int SocketIO::readLine(char* buf, int len)$/;"	f	class:SocketIO
+readn	SocketIO.cpp	/^int SocketIO::readn(char* buf, int len)$/;"	f	class:SocketIO
+ready	Acceptor.cpp	/^void Acceptor::ready()$/;"	f	class:Acceptor
+receive	TcpConnection.cpp	/^string TcpConnection::receive()$/;"	f	class:TcpConnection
+send	TcpConnection.cpp	/^void TcpConnection::send(const string & msg)$/;"	f	class:TcpConnection
+setCloseCallback	EventLoop.cpp	/^void EventLoop::setCloseCallback(TcpConnectionCallback &&cb)$/;"	f	class:EventLoop
+setCloseCallback	TcpConnection.cpp	/^void TcpConnection::setCloseCallback(const TcpConnectionCallback &cb)$/;"	f	class:TcpConnection
+setMessageCallback	EventLoop.cpp	/^void EventLoop::setMessageCallback(TcpConnectionCallback &&cb)$/;"	f	class:EventLoop
+setMessageCallback	TcpConnection.cpp	/^void TcpConnection::setMessageCallback(const TcpConnectionCallback &cb)$/;"	f	class:TcpConnection
+setNewConnectionCallback	EventLoop.cpp	/^void EventLoop::setNewConnectionCallback(TcpConnectionCallback &&cb)$/;"	f	class:EventLoop
+setNewConnectionCallback	TcpConnection.cpp	/^void TcpConnection::setNewConnectionCallback(const TcpConnectionCallback &cb)$/;"	f	class:TcpConnection
+setReuseAddr	Acceptor.cpp	/^void Acceptor::setReuseAddr()$/;"	f	class:Acceptor
+setReusePort	Acceptor.cpp	/^void Acceptor::setReusePort()$/;"	f	class:Acceptor
+shutDownWrite	Socket.cpp	/^void Socket::shutDownWrite()$/;"	f	class:Socket
+test	TestEventLoop.cpp	/^void test(){$/;"	f
+test0	TestEventLoop.cpp	/^void test0()$/;"	f
+toString	TcpConnection.cpp	/^string TcpConnection::toString()$/;"	f	class:TcpConnection
+unloop	EventLoop.cpp	/^void EventLoop::unloop()$/;"	f	class:EventLoop
+waitEpollFd	EventLoop.cpp	/^void EventLoop::waitEpollFd()$/;"	f	class:EventLoop
+writen	SocketIO.cpp	/^int SocketIO::writen(const char* buf, int len)$/;"	f	class:SocketIO
+~Acceptor	Acceptor.cpp	/^Acceptor::~Acceptor()$/;"	f	class:Acceptor
+~EventLoop	EventLoop.cpp	/^EventLoop::~EventLoop()$/;"	f	class:EventLoop
+~InetAddress	InetAddress.cpp	/^InetAddress::~InetAddress()$/;"	f	class:InetAddress
+~NonCopyable	NonCopyable.h	/^    ~NonCopyable(){}$/;"	f	class:NonCopyable
+~Socket	Socket.cpp	/^Socket::~Socket()$/;"	f	class:Socket
+~SocketIO	SocketIO.cpp	/^SocketIO::~SocketIO()$/;"	f	class:SocketIO
+~TcpConnection	TcpConnection.cpp	/^TcpConnection::~TcpConnection()$/;"	f	class:TcpConnection
