@@ -10,8 +10,8 @@
 #include <unistd.h>
 #include <iostream>
 #include <string>
-
 using std::cout;
+using std::cin;
 using std::cerr;
 using std::endl;
 using std::string;
@@ -59,8 +59,8 @@ int main(int argc, char *argv[])
     seraddr.sin_family = AF_INET;
 
     //本机字节序转换为网络字节序(包括ip与端口号)
-    seraddr.sin_port = htons(atoi(argv[2]));
     seraddr.sin_addr.s_addr = inet_addr(argv[1]);
+    seraddr.sin_port = htons(atoi(argv[2]));
 
     int ret = bind(listenfd, (struct sockaddr *)&seraddr,
                    sizeof(seraddr));
@@ -117,9 +117,9 @@ int main(int argc, char *argv[])
             cout << "recv msg from client : " << buf << endl;
         }
 
-        cout << "我服务器想发送数据给客户端 " << endl;
+        cout << "我服务器想发送数据给客户端: ";
         string line;
-        getline(std::cin, line);
+        getline(cin, line);
         int len2 = send(connfd, line.data(), line.size(), 0);
         if(len2 < 0)
         {
@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            cout << "服务器发送正常" << endl;
+            cout << "服务器发送正常。等待客户端回消息...\n";
         }
     }
 
